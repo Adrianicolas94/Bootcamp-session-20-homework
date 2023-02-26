@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Api And Get Request</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        
+    </head>
+    <body>
+
+        <div id="demo">
+           
+            
+           
+        </div>
+    
+    </body>
+
+    <script>
+       
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         name: 'Messi'
+        //     })
+
+        // })
+        
+        // .then(res => {return res.json()})
+        // .then(data => console.log(data))
+
+      
+
+       fetch('https://swapi.dev/api/people')
+         .then((response) => {
+
+           
+                return response.json()
+               
+            })
+
+            .then((data) => {
+
+                console.log(data.results)
+                const element = document.querySelector('#demo')
+                const users = data.results;
+                users.forEach(function (currentUser) {
+                    const html = `
+            <div class='user'>
+               
+                Name: ${currentUser.name}<br>
+                Height: ${currentUser.height}<br>
+                Mass: ${currentUser.mass}  <br>
+                gender: ${currentUser.gender}  
+             </div>  
+             `;
+             
+             element.insertAdjacentHTML('beforeEnd', html);
+                    
+                })
+                  
+            })
+
+
+
+
+      
+    //   const newUser = {
+    //     "name": "morpheus",
+    //      "job": "leader"
+    //                 }
+
+           
+            
+
+    //         fetch('https://reqres.in/api/users', {
+    //             method: 'POST',
+    //             body: JSON.stringify(newUser) 
+    //         })
+    //         .then((response) => {
+    //            console.log(response)
+    //            return response.json()
+    //         })
+
+    //         .then((data) => {
+    //         console.log(data)
+    //           document.querySelector('#demo').innerHTML = data.id       
+    //         })
+
+            
+
+
+</script>
+
+       
+
+ 
+        
+       
+
+
+    </script>
+</html>
